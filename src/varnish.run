@@ -1,2 +1,4 @@
-#!/usr/bin/execlineb -P
-/usr/sbin/varnishd -F -a :80 -T localhost:6082 -f /etc/varnish/default.vcl -S /etc/varnish/secret -s malloc,256m
+#!/usr/bin/with-contenv /bin/bash
+[ -f /etc/default/varnish ] && . /etc/default/varnish
+DAEMON_OPTS=${DAEMON_OPTS:-"-f /etc/varnish/default.vcl"}
+exec /usr/sbin/varnishd -F ${DAEMON_OPTS}
