@@ -2,7 +2,6 @@
 set -e
 
 IMAGE_REPOSITORY=neovatar/varnish
-export TS3_UID=$(id -u teamspeak || echo 1000)
 
 [ -f REPOSITORY ] && rm REPOSITORY
 [ -f BUILDTAG ] && rm BUILDTAG
