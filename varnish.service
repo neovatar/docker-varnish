@@ -1,0 +1,21 @@
+[Unit]
+Description=Varnish container
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=5
+Restart=always
+ExecStartPre=-/usr/bin/docker stop varnish
+ExecStartPre=-/usr/bin/docker rm varnish
+ExecStart=/usr/bin/docker run \
+  --rm \
+  --name varnish \
+  --net=host \
+  -v /var/docker-volumes/varnish/vcl:/etc/varnish \
+  -v /var/docker-volumes/varnish/conf/varnish:/etc/default/varnish \
+  neovatar/varnish
+ExecStop=-/usr/bin/docker stop varnish
+
+[Install]
+WantedBy=multi-user.target
