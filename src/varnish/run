@@ -1,4 +1,8 @@
 #!/usr/bin/with-contenv /bin/bash
 [ -f /etc/default/varnish ] && . /etc/default/varnish
+[ -f /etc/varnish/secret ] || {
+  dd if=/dev/random of=/etc/varnish/secret count=1
+  chmod root:root /etc/varnish/secret
+}
 DAEMON_OPTS=${DAEMON_OPTS:-"-f /etc/varnish/default.vcl"}
 exec /usr/sbin/varnishd -F ${DAEMON_OPTS}
