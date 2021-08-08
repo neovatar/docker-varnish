@@ -9,6 +9,7 @@ IMAGE_REPOSITORY=neovatar/varnish
 UUID=$(cat /proc/sys/kernel/random/uuid)
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
 
+# docker build --no-cache=true -t $IMAGE_REPOSITORY:$UUID .
 docker build --no-cache=true -t $IMAGE_REPOSITORY:$UUID .
 
 IMAGE_TAG=$(docker inspect $IMAGE_REPOSITORY:$UUID | jq -r '.[0] | .ContainerConfig.Labels.varnish_version')-$TIMESTAMP

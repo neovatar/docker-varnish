@@ -5,7 +5,7 @@ DEST_DIR=/var/docker/build/varnish
 SSH_DEST=""
 case $1 in
 prod)
-  SSH_DEST="tom@manji"
+  SSH_DEST="tom@spike"
   ;;
 *)
   SSH_DEST="tom@10.33.66.11"

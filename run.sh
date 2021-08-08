@@ -10,7 +10,7 @@ BUILDTAG=$(cat BUILDTAG)
   --rm \
   --name varnish \
   --net=host \
-  $REPOSITORY:$BUILDTAG
+  "$REPOSITORY:$BUILDTAG"
 
   # -v "$VOLUME/vcl":/etc/varnish \
   # -v "$VOLUME/conf/varnish":/etc/default \
