@@ -9,5 +9,9 @@ S6OVERLAY_URL=https://github.com/just-containers/s6-overlay/releases/download/v$
 echo "===> install s6 overlay v${S6OVERLAY_VERSION}"
 curl -sSL -o ${S6OVERLAY_ARCHIVE} ${S6OVERLAY_URL}
 echo "$S6OVERLAY_SHA256 $S6OVERLAY_ARCHIVE" | sha256sum -c -
-tar -h -xvzf "${S6OVERLAY_ARCHIVE}" -C /
+
+# We need to extract in two steps, because in Ubuntu 20.04 /bin is a symlink to /usr/bin
+tar xvzf "${S6OVERLAY_ARCHIVE}" -C / --exclude='./bin'
+tar xvzf "${S6OVERLAY_ARCHIVE}" -C /usr ./bin
+
 rm "${S6OVERLAY_ARCHIVE}"
