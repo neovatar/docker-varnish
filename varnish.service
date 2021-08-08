@@ -15,7 +15,7 @@ ExecStart=/usr/bin/docker run \
   -v /var/docker/volumes/varnish/conf/varnish:/etc/default/varnish \
   neovatar/varnish
 ExecStop=-/usr/bin/docker stop varnish
-ExecReload=/usr/bin/docker exec varnish /usr/share/varnish/reload-vcl
+ExecReload=/usr/bin/docker exec varnish /usr/sbin/varnishreload
 
 [Install]
 WantedBy=multi-user.target
