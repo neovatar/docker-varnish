@@ -1,6 +1,6 @@
 ## Varnish Image
 
-* Ubuntu 20.04
+* Ubuntu 22.04
 * S6 overlay for service control
 * Varnish 6 deb package from varnish-cache.org
 * mount vcl dir as volume to /etc/varnish in container
