@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv /bin/bash
+#!/command/with-contenv /bin/bash
 [ -f /etc/default/varnish ] && . /etc/default/varnish
 [ -f /etc/varnish/secret ] || {
   dd if=/dev/random of=/etc/varnish/secret count=1

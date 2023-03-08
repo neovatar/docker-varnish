@@ -1,6 +1,6 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
-ARG VARNISH_VERSION=6.6.1-1
+ARG VARNISH_VERSION=7.2.1-1
 
 LABEL maintainer "tom@neovatar.org"
 LABEL varnish_version=$VARNISH_VERSION
